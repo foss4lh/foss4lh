@@ -1,0 +1,6 @@
+book_filename: "foss4lh"
+output_dir: foss4lh.github.io
+delete_merged_file: true
+language:
+  ui:
+    chapter_name: "Chapter "
