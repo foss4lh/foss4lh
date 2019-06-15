@@ -1,0 +1,3 @@
+[submodule "foss4lh.github.io"]
+	path = foss4lh.github.io
+	url = git@github.com:foss4lh/foss4lh.github.io
