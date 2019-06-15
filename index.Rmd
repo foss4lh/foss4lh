@@ -1,6 +1,6 @@
 --- 
-title: "A Minimal Book Example"
-author: "Yihui Xie"
+title: "Free and Open Source Software for Landscape History"
+author: "David Lovelace and Robin Lovelace"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
@@ -14,13 +14,17 @@ description: "This is a minimal example of using the bookdown package to write a
 
 This is a _sample_ book written in **Markdown**. You can use anything that Pandoc's Markdown supports, e.g., a math equation $a^2 + b^2 = c^2$.
 
-The **bookdown** package can be installed from CRAN or Github:
+The required packages can be installed from CRAN or Github:
 
 ```{r eval=FALSE}
-install.packages("bookdown")
-# or the development version
-# devtools::install_github("rstudio/bookdown")
+install.packages("remotes")
 ```
+
+```{r, include=FALSE}
+remotes::install_cran("bookdown")
+remotes::install_github("mtennekes/tmap")
+```
+
 
 Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading `#`.
 
@@ -32,3 +36,37 @@ knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown'
 ), 'packages.bib')
 ```
+
+Reproducible maps can be included, e.g. as follows (source: this [repo](https://github.com/katyrobin/tithe-map-tiles) and this issue):
+
+```{r, warning=FALSE, eval=FALSE}
+library(tmap)
+tmap_mode("view")
+pt = "https://katyrobin.github.io/tithe-map-tiles/hereford-many/{z}/{x}/{y}.png"
+h = osmdata::getbb("hereford, uk", format_out = "sf_polygon")
+m = tm_basemap(leaflet::providers$OpenStreetMap) +
+  tm_tiles(pt, tms = TRUE) +
+  tm_shape(h) +
+  tm_borders() +
+  tm_view(set.view = c(
+    sf::st_coordinates(sf::st_centroid(h))[1] + 0.004,
+    sf::st_coordinates(sf::st_centroid(h))[2],
+    16
+  ))
+```
+
+```{r, echo=FALSE, eval=FALSE}
+tmap_save(m, "m.html")
+m = tm_basemap(leaflet::providers$OpenStreetMap) +
+  tm_tiles(pt, tms = TRUE) +
+  tm_shape(h) +
+  tm_borders() +
+  tm_view(set.view = c(
+    sf::st_coordinates(sf::st_centroid(h))[1] + 0.004,
+    sf::st_coordinates(sf::st_centroid(h))[2],
+    16
+  ))
+```
+
+
+<iframe id="serviceFrameSend" src="m.html" width="100%" height="400"  frameborder="0">
