@@ -4,3 +4,4 @@ delete_merged_file: true
 language:
   ui:
     chapter_name: "Chapter "
+edit: https://github.com/foss4lh/foss4lh/edit/master/%s
