@@ -2,4 +2,7 @@ id,name,collection-year-start,publication-year,coverage,notes
 hfd-tithe-maps,Herefordshire Tithe Maps,1837,1845,Herefordshire,Georectified scans of tithe maps and apportionments.
 hfd-aerofilms,Aerofilms Archive,1920,1986,Herefordshire,Historic aerial photography collection.
 hfd-hedgerow-surveys,Multi-decadal Hedgerow Surveys,1990,2025,Herefordshire,Long-term ecological habitat monitoring data.
-hfd-pro-e112,Exchequer Records (E112),1558,1702,Herefordshire,Mediaeval and early modern legal document scans and transcriptions.
+hfd-pro-e112,Exchequer Records (E112),1558,1702,Herefordshire,Mediaeval and early modern legal document scans and transcriptions. Includes Indenture Curiographs.
+hfd-woodland-1948,Woodland Survey 1948,1948,1949,Herefordshire,Detailed survey of species and age class post-WWII.
+hfd-royal-commission,Royal Commission Survey,1930,1939,Herefordshire (All Parishes),Comprehensive parish-level surveys from the mid-1930s.
+hfd-river-wye,River Wye & NRA Archive,1950,2010,River Wye Corridor,Historic maps of bridges, floods, and river management.
